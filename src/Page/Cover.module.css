@@ -1,0 +1,40 @@
+.cover {
+  position: relative;
+  height: 30vh;
+  width: 100%;
+  background: #f1f1f1;
+  group: cover;
+}
+
+.emptyCover {
+  height: 100%;
+  width: 100%;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 14px;
+}
+
+.cover:hover .button {
+  opacity: 1;
+}
+
+.button:hover {
+  background: #f1f1f1;
+}

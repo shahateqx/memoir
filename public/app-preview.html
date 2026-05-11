@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memoir Workspace</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: oklch(99% 0.002 0);
+      --surface: oklch(98% 0.005 0);
+      --fg: oklch(25% 0.01 20);
+      --muted: oklch(60% 0.01 20);
+      --border: oklch(92% 0.005 20);
+      --accent: oklch(55% 0.18 250);
+      --font-display: 'Iowan Old Style', 'Charter', 'Georgia', serif;
+      --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--fg);
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    aside {
+      width: 240px;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      padding: 12px 0;
+      user-select: none;
+    }
+
+    .sidebar-header {
+      padding: 0 16px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .nav-item {
+      padding: 4px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--fg);
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+    .nav-item:hover { background: var(--border); }
+    .nav-item i { width: 16px; height: 16px; color: var(--muted); }
+
+    .nav-section {
+      margin-top: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      padding: 0 16px 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nested-page {
+      padding-left: 28px;
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      height: 45px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .editor-container {
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 80px 40px;
+    }
+
+    .page-icon {
+      font-size: 72px;
+      margin-bottom: 20px;
+    }
+
+    h1.page-title {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      outline: none;
+    }
+
+    /* Blocks */
+    .block {
+      position: relative;
+      margin-bottom: 2px;
+      padding: 4px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      border-radius: 4px;
+    }
+
+    .block:hover .drag-handle {
+      opacity: 1;
+    }
+
+    .drag-handle {
+      width: 16px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+      opacity: 0;
+      color: var(--muted);
+      transition: opacity 0.1s;
+    }
+
+    .block-content {
+      flex: 1;
+      outline: none;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .block-h2 { font-family: var(--font-display); font-size: 28px; margin-top: 24px; margin-bottom: 8px; font-weight: 600; }
+    .block-h3 { font-family: var(--font-display); font-size: 20px; margin-top: 16px; margin-bottom: 4px; font-weight: 600; }
+
+    .block-code {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 14px;
+      margin: 12px 0;
+    }
+
+    .block-callout {
+      background: var(--surface);
+      padding: 16px;
+      border-radius: 4px;
+      display: flex;
+      gap: 12px;
+      margin: 12px 0;
+    }
+
+    /* Floating UI */
+    .slash-menu {
+      position: absolute;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px;
+      width: 280px;
+      z-index: 100;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <div class="sidebar-header">
+      <div style="background: var(--accent); color: white; width: 24px; height: 24px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px;">M</div>
+      Memoir
+    </div>
+    <div class="nav-item"><i data-lucide="search"></i> Search</div>
+    <div class="nav-item"><i data-lucide="clock"></i> Updates</div>
+    <div class="nav-item"><i data-lucide="settings"></i> Settings</div>
+
+    <div class="nav-section">Private</div>
+    <div class="nav-item"><i data-lucide="file-text"></i> Personal Home</div>
+    <div class="nav-item"><i data-lucide="check-square"></i> Tasks</div>
+    <div class="nav-item"><i data-lucide="book"></i> Reading List</div>
+    <div class="nav-item nested-page"><i data-lucide="chevron-right"></i> Classics</div>
+    <div class="nav-item nested-page"><i data-lucide="chevron-right"></i> Sci-Fi</div>
+    <div class="nav-item"><i data-lucide="calendar"></i> Journal</div>
+  </aside>
+
+  <main>
+    <header>
+      <i data-lucide="menu"></i>
+      <span>Personal Home / Reading List / </span>
+      <span style="color: var(--fg)">Sci-Fi</span>
+    </header>
+
+    <div class="editor-container">
+      <div class="page-icon">🚀</div>
+      <h1 class="page-title" contenteditable="true">Sci-Fi Masterpieces</h1>
+      
+      <div class="block">
+        <div class="drag-handle"><i data-lucide="grip-vertical"></i></div>
+        <div class="block-content" contenteditable="true">A curated list of science fiction that shaped the future. This page is collaborative—feel free to add your own favorites or notes.</div>
+      </div>
+
+      <div class="block">
+        <div class="drag-handle"><i data-lucide="grip-vertical"></i></div>
+        <div class="block-content block-h2" contenteditable="true">Must Reads</div>
+      </div>
+
+      <div class="block">
+        <div class="drag-handle"><i data-lucide="grip-vertical"></i></div>
+        <div class="block-content" contenteditable="true">1. <b>Dune</b> by Frank Herbert - The quintessential space opera focusing on politics, religion, and ecology.</div>
+      </div>
+
+      <div class="block">
+        <div class="drag-handle"><i data-lucide="grip-vertical"></i></div>
+        <div class="block-content" contenteditable="true">2. <b>Foundation</b> by Isaac Asimov - Psychohistory and the fall of galactic empires.</div>
+      </div>
+
+      <div class="block">
+        <div class="drag-handle"><i data-lucide="grip-vertical"></i></div>
+        <div class="block-content block-callout">
+          <div style="font-size: 20px;">💡</div>
+          <div contenteditable="true">Pro tip: Drag and drop these items to re-rank them based on your current reading progress.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="drag-handle"><i data-lucide="grip-vertical"></i></div>
+        <div class="block-content block-h2" contenteditable="true">Implementation Notes</div>
+      </div>
+
+      <div class="block">
+        <div class="drag-handle"><i data-lucide="grip-vertical"></i></div>
+        <div class="block-content block-code" contenteditable="true">
+// Block-based data structure
+{
+  id: "b123",
+  type: "text",
+  content: "Dune by Frank Herbert",
+  children: []
+}
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    lucide.createIcons();
+    // Add simple interactivity: Enter creates a new block
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && e.target.classList.contains('block-content')) {
+        e.preventDefault();
+        const newBlock = document.createElement('div');
+        newBlock.className = 'block';
+        newBlock.innerHTML = `
+          <div class="drag-handle"><i data-lucide="grip-vertical"></i></div>
+          <div class="block-content" contenteditable="true"></div>
+        `;
+        e.target.closest('.block').insertAdjacentElement('afterend', newBlock);
+        newBlock.querySelector('.block-content').focus();
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>

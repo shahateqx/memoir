@@ -1,0 +1,72 @@
+.node {
+  width: 100%;
+  min-height: 24px;
+  outline: none;
+  line-height: 1.5;
+  padding: 4px 0;
+  word-break: break-word;
+}
+
+.node[contenteditable]:empty::before {
+  content: attr(placeholder);
+  color: #ccc;
+  pointer-events: none;
+}
+
+.text {
+  font-size: 16px;
+}
+
+.heading1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 16px;
+}
+
+.heading2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.heading3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.list {
+  display: list-item;
+  list-style-type: disc;
+  margin-left: 24px;
+}
+
+.imageContainer {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.image {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.pageLink {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  margin: 4px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+  font-weight: 500;
+  color: #0070f3;
+}
+
+.pageLink:hover {
+  background: #f1f1f1;
+}
+
+.pageIcon {
+  margin-right: 8px;
+}

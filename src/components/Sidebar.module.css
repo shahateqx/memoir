@@ -1,0 +1,184 @@
+.sidebar {
+  width: 250px;
+  background-color: #fbfbfa;
+  border-right: 1px solid #ebebeb;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: #37352f;
+  transition: width 0.2s;
+  flex-shrink: 0;
+}
+
+.header {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-left: -8px;
+  transition: background 0.2s;
+}
+
+.logoInfo:hover {
+  background: #efefef;
+}
+
+.logoBox {
+  width: 20px;
+  height: 20px;
+  background-color: #0070f3;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.workspaceName {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.actions {
+  padding: 0 16px;
+  margin-bottom: 20px;
+}
+
+.actionItem {
+  padding: 6px 8px;
+  margin: 2px 0;
+  margin-left: -8px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.actionItem:hover {
+  background: #efefef;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 6px 8px;
+  margin-left: -8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.searchInput:focus {
+  border-color: #0070f3;
+}
+
+.section {
+  padding: 0 16px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: #999;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.pageList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pageLink {
+  padding: 6px 8px;
+  margin-left: -8px;
+  font-size: 14px;
+  color: #37352f;
+  text-decoration: none;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.pageLinkText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.deletePageBtn {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0 4px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.pageLink:hover .deletePageBtn {
+  opacity: 1;
+}
+
+.deletePageBtn:hover {
+  color: #ff4d4f;
+  background: #ffe5e5;
+}
+
+.pageLink:hover {
+  background: #efefef;
+}
+
+.active {
+  background: #efefef;
+  font-weight: 500;
+}
+
+.addPageBtn {
+  margin-top: 8px;
+  padding: 6px 8px;
+  margin-left: -8px;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 4px;
+  width: calc(100% + 16px);
+  transition: background 0.2s;
+}
+
+.addPageBtn:hover {
+  background: #efefef;
+}
+
+.bottomActions {
+  padding: 16px;
+  border-top: 1px solid #ebebeb;
+  position: relative;
+}

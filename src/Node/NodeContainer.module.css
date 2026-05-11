@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 2px;
+}
+
+.dragHandle {
+  opacity: 0;
+  cursor: grab;
+  color: #ccc;
+  padding: 4px;
+  position: absolute;
+  left: -24px;
+  top: 4px;
+  transition: opacity 0.2s;
+  user-select: none;
+}
+
+.container:hover .dragHandle {
+  opacity: 1;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
