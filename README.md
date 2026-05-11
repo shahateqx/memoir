@@ -1,16 +1,33 @@
-# React + Vite
+# Memoir 📓
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Memoir is a high-performance, real-time workspace and note-taking application inspired by Notion. It features a fully interactive block-based editor, allowing users to seamlessly construct and organize their thoughts using text, code blocks, callouts, and more. 
 
-Currently, two official plugins are available:
+Built with modern web technologies, Memoir focuses on speed, fluid user experience, and secure real-time data synchronization.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- **Block-Based Editor:** Everything is a block. Mix and match paragraphs, code snippets, and callouts to build the perfect page.
+- **Drag and Drop Flexibility:** Effortlessly reorganize your thoughts using the intuitive drag-and-drop interface powered by `dnd-kit`.
+- **Real-Time Synchronization:** Write and edit knowing your data is instantly saved and synced to the cloud via Supabase.
+- **Dynamic Sidebar Navigation:** Manage, search, and instantly switch between your personal notebooks. 
+- **Modern Authentication:** Secure Email/Password registration and login system with session persistence.
+- **Sleek Landing Page:** A beautiful, responsive landing page with integrated modal authentication views.
+- **Privacy First:** End-to-end security managed by PostgreSQL Row Level Security (RLS) policies, ensuring your private notes remain yours.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend:** React (Vite)
+- **Styling:** Vanilla CSS & CSS Modules (for scoped, maintainable styles)
+- **Routing:** React Router v6
+- **Backend as a Service (BaaS):** Supabase
+- **Database:** PostgreSQL (with Row Level Security)
+- **Analytics:** Vercel Analytics
+- **Deployment:** Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📦 Deployment
+
+This project is optimized for deployment on Vercel. 
+
+
+## 📄 License
+This project is open-source and available under the MIT License.
