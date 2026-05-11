@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate, useParams } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import { AuthSessionProvider, useAuthSession } from "./auth/AuthSessionContext";
 import { LandingPage } from "./components/LandingPage";
 import { Private } from "./auth/Private";
@@ -35,6 +36,7 @@ const App = () => {
           />
           <Route path="/" element={<RootRoute />} />
         </Routes>
+        <Analytics />
       </AuthSessionProvider>
     </BrowserRouter>
   );
