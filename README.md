@@ -17,11 +17,10 @@ Built with modern web technologies, Memoir focuses on speed, fluid user experien
 ## 🛠️ Tech Stack
 
 - **Frontend:** React (Vite)
-- **Styling:** Vanilla CSS & CSS Modules (for scoped, maintainable styles)
+- **Styling:** Vanilla CSS
 - **Routing:** React Router v6
 - **Backend as a Service (BaaS):** Supabase
-- **Database:** PostgreSQL (with Row Level Security)
-- **Analytics:** Vercel Analytics
+- **Database:** PostgreSQL
 - **Deployment:** Vercel
 
 ## 📦 Deployment
